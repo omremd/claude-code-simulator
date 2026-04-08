@@ -1,0 +1,1045 @@
+{
+  "lastUpdated": "2026-04-08",
+  "currentVersion": "2.1.94",
+  "sources": {
+    "primary": "https://code.claude.com/docs/en/commands",
+    "builtIn": "https://code.claude.com/docs/en/commands",
+    "cli": "https://code.claude.com/docs/en/cli-reference",
+    "releaseNotes": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md"
+  },
+  "commands": [
+    {
+      "command": "/add-dir <path>",
+      "description": "Add a working directory for file access during the current session.",
+      "type": "built-in",
+      "example": "/add-dir ../shared",
+      "aliases": []
+    },
+    {
+      "command": "/agents",
+      "description": "Manage agent configurations.",
+      "type": "built-in",
+      "example": "/agents",
+      "aliases": []
+    },
+    {
+      "command": "/btw <question>",
+      "description": "Ask a quick side question without adding it to the main conversation.",
+      "type": "built-in",
+      "example": "/btw what does this regex do?",
+      "aliases": []
+    },
+    {
+      "command": "/chrome",
+      "description": "Configure Claude in Chrome settings.",
+      "type": "built-in",
+      "example": "/chrome",
+      "aliases": []
+    },
+    {
+      "command": "/clear",
+      "description": "Clear conversation history and free up context.",
+      "type": "built-in",
+      "example": "/clear",
+      "aliases": [
+        "/reset",
+        "/new"
+      ]
+    },
+    {
+      "command": "/color [color|default]",
+      "description": "Set the prompt bar color for the current session.",
+      "type": "built-in",
+      "example": "/color blue",
+      "aliases": []
+    },
+    {
+      "command": "/compact [instructions]",
+      "description": "Compact the conversation with optional focus instructions.",
+      "type": "built-in",
+      "example": "/compact focus on auth fixes",
+      "aliases": []
+    },
+    {
+      "command": "/config",
+      "description": "Open the settings interface to adjust theme, model, output style, and preferences.",
+      "type": "built-in",
+      "example": "/config",
+      "aliases": [
+        "/settings"
+      ]
+    },
+    {
+      "command": "/context",
+      "description": "Visualize current context usage as a colored grid and show optimization hints.",
+      "type": "built-in",
+      "example": "/context",
+      "aliases": []
+    },
+    {
+      "command": "/copy [N]",
+      "description": "Copy the last assistant response, or the Nth-latest response, to the clipboard.",
+      "type": "built-in",
+      "example": "/copy 2",
+      "aliases": []
+    },
+    {
+      "command": "/cost",
+      "description": "Show token usage statistics.",
+      "type": "built-in",
+      "example": "/cost",
+      "aliases": []
+    },
+    {
+      "command": "/desktop",
+      "description": "Continue the current session in the Claude Code Desktop app.",
+      "type": "built-in",
+      "example": "/desktop",
+      "aliases": [
+        "/app"
+      ]
+    },
+    {
+      "command": "/diff",
+      "description": "Open an interactive diff viewer for uncommitted changes and per-turn diffs.",
+      "type": "built-in",
+      "example": "/diff",
+      "aliases": []
+    },
+    {
+      "command": "/doctor",
+      "description": "Diagnose and verify your Claude Code installation and settings.",
+      "type": "built-in",
+      "example": "/doctor",
+      "aliases": []
+    },
+    {
+      "command": "/effort [low|medium|high|max|auto]",
+      "description": "Set or view the model effort level.",
+      "type": "built-in",
+      "example": "/effort high",
+      "aliases": []
+    },
+    {
+      "command": "/exit",
+      "description": "Exit the CLI.",
+      "type": "built-in",
+      "example": "/exit",
+      "aliases": [
+        "/quit"
+      ]
+    },
+    {
+      "command": "/export [filename]",
+      "description": "Export the current conversation as plain text.",
+      "type": "built-in",
+      "example": "/export session.txt",
+      "aliases": []
+    },
+    {
+      "command": "/extra-usage",
+      "description": "Configure extra usage to keep working when rate limits are hit.",
+      "type": "built-in",
+      "example": "/extra-usage",
+      "aliases": []
+    },
+    {
+      "command": "/fast [on|off]",
+      "description": "Toggle fast mode on or off.",
+      "type": "built-in",
+      "example": "/fast on",
+      "aliases": []
+    },
+    {
+      "command": "/feedback [report]",
+      "description": "Submit feedback about Claude Code.",
+      "type": "built-in",
+      "example": "/feedback login loop",
+      "aliases": [
+        "/bug"
+      ]
+    },
+    {
+      "command": "/branch [name]",
+      "description": "Create a branch of the current conversation at this point.",
+      "type": "built-in",
+      "example": "/branch auth-investigation",
+      "aliases": [
+        "/fork"
+      ]
+    },
+    {
+      "command": "/help",
+      "description": "Show help and available commands.",
+      "type": "built-in",
+      "example": "/help",
+      "aliases": []
+    },
+    {
+      "command": "/hooks",
+      "description": "View hook configurations for tool events.",
+      "type": "built-in",
+      "example": "/hooks",
+      "aliases": []
+    },
+    {
+      "command": "/ide",
+      "description": "Manage IDE integrations and show status.",
+      "type": "built-in",
+      "example": "/ide",
+      "aliases": []
+    },
+    {
+      "command": "/init",
+      "description": "Initialize the project with a CLAUDE.md guide.",
+      "type": "built-in",
+      "example": "/init",
+      "aliases": []
+    },
+    {
+      "command": "/insights",
+      "description": "Generate a report analyzing Claude Code sessions, project areas, and friction points.",
+      "type": "built-in",
+      "example": "/insights",
+      "aliases": []
+    },
+    {
+      "command": "/install-github-app",
+      "description": "Set up the Claude GitHub Actions app for a repository.",
+      "type": "built-in",
+      "example": "/install-github-app",
+      "aliases": []
+    },
+    {
+      "command": "/install-slack-app",
+      "description": "Install the Claude Slack app and open the OAuth flow.",
+      "type": "built-in",
+      "example": "/install-slack-app",
+      "aliases": []
+    },
+    {
+      "command": "/keybindings",
+      "description": "Open or create the keybindings configuration file.",
+      "type": "built-in",
+      "example": "/keybindings",
+      "aliases": []
+    },
+    {
+      "command": "/login",
+      "description": "Sign in to your Anthropic account.",
+      "type": "built-in",
+      "example": "/login",
+      "aliases": []
+    },
+    {
+      "command": "/logout",
+      "description": "Sign out from your Anthropic account.",
+      "type": "built-in",
+      "example": "/logout",
+      "aliases": []
+    },
+    {
+      "command": "/mcp",
+      "description": "Manage MCP server connections and OAuth authentication.",
+      "type": "built-in",
+      "example": "/mcp",
+      "aliases": []
+    },
+    {
+      "command": "/memory",
+      "description": "Edit CLAUDE.md memory files, auto-memory, and loaded session memory.",
+      "type": "built-in",
+      "example": "/memory",
+      "aliases": []
+    },
+    {
+      "command": "/mobile",
+      "description": "Show a QR code to download the Claude mobile app.",
+      "type": "built-in",
+      "example": "/mobile",
+      "aliases": [
+        "/ios",
+        "/android"
+      ]
+    },
+    {
+      "command": "/model [model]",
+      "description": "Select or change the AI model.",
+      "type": "built-in",
+      "example": "/model sonnet",
+      "aliases": []
+    },
+    {
+      "command": "/passes",
+      "description": "Share a free week of Claude Code with friends if your account is eligible.",
+      "type": "built-in",
+      "example": "/passes",
+      "aliases": []
+    },
+    {
+      "command": "/permissions",
+      "description": "Manage allow, ask, and deny rules for tool permissions.",
+      "type": "built-in",
+      "example": "/permissions",
+      "aliases": [
+        "/allowed-tools"
+      ]
+    },
+    {
+      "command": "/plan [description]",
+      "description": "Enter plan mode directly, optionally with an initial task description.",
+      "type": "built-in",
+      "example": "/plan fix flaky tests",
+      "aliases": []
+    },
+    {
+      "command": "/plugin",
+      "description": "Manage Claude Code plugins.",
+      "type": "built-in",
+      "example": "/plugin",
+      "aliases": []
+    },
+    {
+      "command": "/powerup",
+      "description": "Run quick interactive lessons with animated demos for Claude Code features.",
+      "type": "built-in",
+      "example": "/powerup",
+      "aliases": []
+    },
+    {
+      "command": "/pr-comments [PR]",
+      "description": "Removed in v2.1.91. Earlier versions fetched pull request comments from GitHub.",
+      "type": "built-in",
+      "example": "/pr-comments 123",
+      "aliases": []
+    },
+    {
+      "command": "/privacy-settings",
+      "description": "View and update privacy settings for eligible plans.",
+      "type": "built-in",
+      "example": "/privacy-settings",
+      "aliases": []
+    },
+    {
+      "command": "/release-notes",
+      "description": "View the changelog in an interactive version picker.",
+      "type": "built-in",
+      "example": "/release-notes",
+      "aliases": []
+    },
+    {
+      "command": "/reload-plugins",
+      "description": "Reload all active plugins without restarting.",
+      "type": "built-in",
+      "example": "/reload-plugins",
+      "aliases": []
+    },
+    {
+      "command": "/remote-control",
+      "description": "Make this session available for remote control from claude.ai.",
+      "type": "built-in",
+      "example": "/remote-control",
+      "aliases": [
+        "/rc"
+      ]
+    },
+    {
+      "command": "/remote-env",
+      "description": "Configure the default remote environment for web sessions started with --remote.",
+      "type": "built-in",
+      "example": "/remote-env",
+      "aliases": []
+    },
+    {
+      "command": "/rename [name]",
+      "description": "Rename the current session and show the name on the prompt bar.",
+      "type": "built-in",
+      "example": "/rename auth-fix",
+      "aliases": []
+    },
+    {
+      "command": "/resume [session]",
+      "description": "Resume a conversation by ID or name, or open the session picker.",
+      "type": "built-in",
+      "example": "/resume auth-refactor",
+      "aliases": [
+        "/continue"
+      ]
+    },
+    {
+      "command": "/review",
+      "description": "Deprecated. Install the code-review plugin instead.",
+      "type": "built-in",
+      "example": "/review",
+      "aliases": []
+    },
+    {
+      "command": "/rewind",
+      "description": "Rewind the conversation and/or code to a previous point.",
+      "type": "built-in",
+      "example": "/rewind",
+      "aliases": [
+        "/checkpoint"
+      ]
+    },
+    {
+      "command": "/sandbox",
+      "description": "Toggle sandbox mode on supported platforms.",
+      "type": "built-in",
+      "example": "/sandbox",
+      "aliases": []
+    },
+    {
+      "command": "/schedule [description]",
+      "description": "Create, update, list, or run cloud scheduled tasks.",
+      "type": "built-in",
+      "example": "/schedule daily review",
+      "aliases": []
+    },
+    {
+      "command": "/security-review",
+      "description": "Analyze pending changes on the current branch for security vulnerabilities.",
+      "type": "built-in",
+      "example": "/security-review",
+      "aliases": []
+    },
+    {
+      "command": "/setup-bedrock",
+      "description": "Configure Amazon Bedrock authentication, region, and model pins.",
+      "type": "built-in",
+      "example": "/setup-bedrock",
+      "aliases": []
+    },
+    {
+      "command": "/skills",
+      "description": "List available skills.",
+      "type": "built-in",
+      "example": "/skills",
+      "aliases": []
+    },
+    {
+      "command": "/stats",
+      "description": "Visualize daily usage, session history, streaks, and model preferences.",
+      "type": "built-in",
+      "example": "/stats",
+      "aliases": []
+    },
+    {
+      "command": "/status",
+      "description": "Open the status tab showing version, model, account, and connectivity.",
+      "type": "built-in",
+      "example": "/status",
+      "aliases": []
+    },
+    {
+      "command": "/statusline",
+      "description": "Configure Claude Code’s status line.",
+      "type": "built-in",
+      "example": "/statusline",
+      "aliases": []
+    },
+    {
+      "command": "/stickers",
+      "description": "Order Claude Code stickers.",
+      "type": "built-in",
+      "example": "/stickers",
+      "aliases": []
+    },
+    {
+      "command": "/tasks",
+      "description": "List and manage background tasks.",
+      "type": "built-in",
+      "example": "/tasks",
+      "aliases": [
+        "/bashes"
+      ]
+    },
+    {
+      "command": "/terminal-setup",
+      "description": "Configure terminal keybindings for Shift+Enter and other shortcuts.",
+      "type": "built-in",
+      "example": "/terminal-setup",
+      "aliases": []
+    },
+    {
+      "command": "/theme",
+      "description": "Change the color theme.",
+      "type": "built-in",
+      "example": "/theme",
+      "aliases": []
+    },
+    {
+      "command": "/ultraplan <prompt>",
+      "description": "Draft a plan in an ultraplan session, review it in the browser, then execute remotely or send it back to the terminal.",
+      "type": "built-in",
+      "example": "/ultraplan migrate auth flow",
+      "aliases": []
+    },
+    {
+      "command": "/upgrade",
+      "description": "Open the upgrade page to switch to a higher plan tier.",
+      "type": "built-in",
+      "example": "/upgrade",
+      "aliases": []
+    },
+    {
+      "command": "/usage",
+      "description": "Show plan usage limits and rate limit status.",
+      "type": "built-in",
+      "example": "/usage",
+      "aliases": []
+    },
+    {
+      "command": "/vim",
+      "description": "Removed in v2.1.92. Use /config → Editor mode instead.",
+      "type": "built-in",
+      "example": "/vim",
+      "aliases": []
+    },
+    {
+      "command": "/voice",
+      "description": "Toggle push-to-talk voice dictation.",
+      "type": "built-in",
+      "example": "/voice",
+      "aliases": []
+    },
+    {
+      "command": "claude",
+      "description": "Start an interactive session.",
+      "type": "cli",
+      "example": "claude",
+      "aliases": []
+    },
+    {
+      "command": "claude \"query\"",
+      "description": "Start an interactive session with an initial prompt.",
+      "type": "cli",
+      "example": "claude \"explain this project\"",
+      "aliases": []
+    },
+    {
+      "command": "claude -p \"query\"",
+      "description": "Query via SDK/print mode, then exit.",
+      "type": "cli",
+      "example": "claude -p \"explain this function\"",
+      "aliases": []
+    },
+    {
+      "command": "cat file | claude -p \"query\"",
+      "description": "Process piped content through print mode.",
+      "type": "cli",
+      "example": "cat logs.txt | claude -p \"explain\"",
+      "aliases": []
+    },
+    {
+      "command": "claude -c",
+      "description": "Continue the most recent conversation in the current directory.",
+      "type": "cli",
+      "example": "claude -c",
+      "aliases": [
+        "claude --continue"
+      ]
+    },
+    {
+      "command": "claude -c -p \"query\"",
+      "description": "Continue a conversation via SDK/print mode.",
+      "type": "cli",
+      "example": "claude -c -p \"Check for type errors\"",
+      "aliases": []
+    },
+    {
+      "command": "claude -r \"<session>\" \"query\"",
+      "description": "Resume a session by ID or name.",
+      "type": "cli",
+      "example": "claude -r \"auth-refactor\" \"Finish this PR\"",
+      "aliases": [
+        "claude --resume <session>"
+      ]
+    },
+    {
+      "command": "claude update",
+      "description": "Update Claude Code to the latest version.",
+      "type": "cli",
+      "example": "claude update",
+      "aliases": []
+    },
+    {
+      "command": "claude auth login",
+      "description": "Sign in to your Anthropic account.",
+      "type": "cli",
+      "example": "claude auth login --console",
+      "aliases": []
+    },
+    {
+      "command": "claude auth logout",
+      "description": "Log out from your Anthropic account.",
+      "type": "cli",
+      "example": "claude auth logout",
+      "aliases": []
+    },
+    {
+      "command": "claude auth status",
+      "description": "Show authentication status as JSON or human-readable text.",
+      "type": "cli",
+      "example": "claude auth status --text",
+      "aliases": []
+    },
+    {
+      "command": "claude agents",
+      "description": "List configured subagents grouped by source.",
+      "type": "cli",
+      "example": "claude agents",
+      "aliases": []
+    },
+    {
+      "command": "claude auto-mode defaults",
+      "description": "Print built-in auto mode classifier rules as JSON.",
+      "type": "cli",
+      "example": "claude auto-mode defaults > rules.json",
+      "aliases": []
+    },
+    {
+      "command": "claude mcp",
+      "description": "Configure Model Context Protocol servers.",
+      "type": "cli",
+      "example": "claude mcp",
+      "aliases": []
+    },
+    {
+      "command": "claude plugin",
+      "description": "Manage Claude Code plugins.",
+      "type": "cli",
+      "example": "claude plugin install code-review@claude-plugins-official",
+      "aliases": [
+        "claude plugins"
+      ]
+    },
+    {
+      "command": "claude remote-control",
+      "description": "Start a Remote Control server for claude.ai or the Claude app.",
+      "type": "cli",
+      "example": "claude remote-control --name \"My Project\"",
+      "aliases": []
+    },
+    {
+      "command": "--add-dir",
+      "description": "Add additional working directories for Claude to read and edit.",
+      "type": "cli",
+      "example": "claude --add-dir ../apps ../lib",
+      "aliases": []
+    },
+    {
+      "command": "--agent",
+      "description": "Specify an agent for the current session.",
+      "type": "cli",
+      "example": "claude --agent my-custom-agent",
+      "aliases": []
+    },
+    {
+      "command": "--agents",
+      "description": "Define custom subagents dynamically via JSON.",
+      "type": "cli",
+      "example": "claude --agents \"{\"reviewer\":{\"description\":\"Reviews code\",\"prompt\":\"You are a code reviewer\"}}\"",
+      "aliases": []
+    },
+    {
+      "command": "--allow-dangerously-skip-permissions",
+      "description": "Add bypassPermissions to the Shift+Tab mode cycle without starting in it.",
+      "type": "cli",
+      "example": "claude --permission-mode plan --allow-dangerously-skip-permissions",
+      "aliases": []
+    },
+    {
+      "command": "--allowedTools",
+      "description": "Tools that execute without prompting for permission.",
+      "type": "cli",
+      "example": "claude --allowedTools \"Read\" \"Edit\"",
+      "aliases": []
+    },
+    {
+      "command": "--append-system-prompt",
+      "description": "Append custom text to the end of the default system prompt.",
+      "type": "cli",
+      "example": "claude --append-system-prompt \"Always use TypeScript\"",
+      "aliases": []
+    },
+    {
+      "command": "--append-system-prompt-file",
+      "description": "Append system prompt text from a file.",
+      "type": "cli",
+      "example": "claude --append-system-prompt-file ./extra-rules.txt",
+      "aliases": []
+    },
+    {
+      "command": "--bare",
+      "description": "Minimal mode: skip auto-discovery of hooks, skills, plugins, MCP, memory, and CLAUDE.md.",
+      "type": "cli",
+      "example": "claude --bare -p \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--betas",
+      "description": "Beta headers to include in API requests for API-key users.",
+      "type": "cli",
+      "example": "claude --betas interleaved-thinking",
+      "aliases": []
+    },
+    {
+      "command": "--channels",
+      "description": "Enable selected MCP channel notifications in this session.",
+      "type": "cli",
+      "example": "claude --channels plugin:my-notifier@my-marketplace",
+      "aliases": []
+    },
+    {
+      "command": "--chrome",
+      "description": "Enable Chrome browser integration for web automation and testing.",
+      "type": "cli",
+      "example": "claude --chrome",
+      "aliases": []
+    },
+    {
+      "command": "--dangerously-load-development-channels",
+      "description": "Enable non-approved development channels for local development.",
+      "type": "cli",
+      "example": "claude --dangerously-load-development-channels server:webhook",
+      "aliases": []
+    },
+    {
+      "command": "--dangerously-skip-permissions",
+      "description": "Skip permission prompts and begin in bypassPermissions mode.",
+      "type": "cli",
+      "example": "claude --dangerously-skip-permissions",
+      "aliases": []
+    },
+    {
+      "command": "--debug",
+      "description": "Enable debug mode with optional category filtering.",
+      "type": "cli",
+      "example": "claude --debug \"api,mcp\"",
+      "aliases": []
+    },
+    {
+      "command": "--debug-file <path>",
+      "description": "Write debug logs to a specific file path.",
+      "type": "cli",
+      "example": "claude --debug-file /tmp/claude-debug.log",
+      "aliases": []
+    },
+    {
+      "command": "--disable-slash-commands",
+      "description": "Disable all skills and commands for the session.",
+      "type": "cli",
+      "example": "claude --disable-slash-commands",
+      "aliases": []
+    },
+    {
+      "command": "--disallowedTools",
+      "description": "Remove tools from the model context so they cannot be used.",
+      "type": "cli",
+      "example": "claude --disallowedTools \"Bash(curl *)\"",
+      "aliases": []
+    },
+    {
+      "command": "--effort",
+      "description": "Set the effort level for the current session.",
+      "type": "cli",
+      "example": "claude --effort high",
+      "aliases": []
+    },
+    {
+      "command": "--fallback-model",
+      "description": "Enable automatic fallback to another model in print mode.",
+      "type": "cli",
+      "example": "claude -p --fallback-model sonnet \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--fork-session",
+      "description": "When resuming, create a new session ID instead of reusing the original.",
+      "type": "cli",
+      "example": "claude --resume abc123 --fork-session",
+      "aliases": []
+    },
+    {
+      "command": "--from-pr",
+      "description": "Resume sessions linked to a specific GitHub PR.",
+      "type": "cli",
+      "example": "claude --from-pr 123",
+      "aliases": []
+    },
+    {
+      "command": "--ide",
+      "description": "Automatically connect to an IDE on startup if exactly one valid IDE is available.",
+      "type": "cli",
+      "example": "claude --ide",
+      "aliases": []
+    },
+    {
+      "command": "--init",
+      "description": "Run initialization hooks and start interactive mode.",
+      "type": "cli",
+      "example": "claude --init",
+      "aliases": []
+    },
+    {
+      "command": "--init-only",
+      "description": "Run initialization hooks and exit.",
+      "type": "cli",
+      "example": "claude --init-only",
+      "aliases": []
+    },
+    {
+      "command": "--include-hook-events",
+      "description": "Include all hook lifecycle events in the output stream.",
+      "type": "cli",
+      "example": "claude -p --output-format stream-json --include-hook-events \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--include-partial-messages",
+      "description": "Include partial streaming events in output.",
+      "type": "cli",
+      "example": "claude -p --output-format stream-json --include-partial-messages \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--input-format",
+      "description": "Specify input format for print mode.",
+      "type": "cli",
+      "example": "claude -p --output-format json --input-format stream-json",
+      "aliases": []
+    },
+    {
+      "command": "--json-schema",
+      "description": "Return validated JSON matching a JSON Schema in print mode.",
+      "type": "cli",
+      "example": "claude -p --json-schema \"{...}\" \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--maintenance",
+      "description": "Run maintenance hooks and start interactive mode.",
+      "type": "cli",
+      "example": "claude --maintenance",
+      "aliases": []
+    },
+    {
+      "command": "--max-budget-usd",
+      "description": "Maximum dollar amount to spend on API calls before stopping in print mode.",
+      "type": "cli",
+      "example": "claude -p --max-budget-usd 5.00 \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--max-turns",
+      "description": "Limit the number of agentic turns in print mode.",
+      "type": "cli",
+      "example": "claude -p --max-turns 3 \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--mcp-config",
+      "description": "Load MCP servers from JSON files or JSON strings.",
+      "type": "cli",
+      "example": "claude --mcp-config ./mcp.json",
+      "aliases": []
+    },
+    {
+      "command": "--model",
+      "description": "Set the model for the current session.",
+      "type": "cli",
+      "example": "claude --model claude-sonnet-4-6",
+      "aliases": []
+    },
+    {
+      "command": "--name, -n",
+      "description": "Set a display name for the session.",
+      "type": "cli",
+      "example": "claude -n \"my-feature-work\"",
+      "aliases": []
+    },
+    {
+      "command": "--no-chrome",
+      "description": "Disable Chrome browser integration for the session.",
+      "type": "cli",
+      "example": "claude --no-chrome",
+      "aliases": []
+    },
+    {
+      "command": "--no-session-persistence",
+      "description": "Disable session persistence in print mode.",
+      "type": "cli",
+      "example": "claude -p --no-session-persistence \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--output-format",
+      "description": "Specify output format for print mode.",
+      "type": "cli",
+      "example": "claude -p \"query\" --output-format json",
+      "aliases": []
+    },
+    {
+      "command": "--enable-auto-mode",
+      "description": "Unlock auto mode in the Shift+Tab cycle.",
+      "type": "cli",
+      "example": "claude --enable-auto-mode",
+      "aliases": []
+    },
+    {
+      "command": "--permission-mode",
+      "description": "Begin in a specified permission mode.",
+      "type": "cli",
+      "example": "claude --permission-mode plan",
+      "aliases": []
+    },
+    {
+      "command": "--permission-prompt-tool",
+      "description": "Specify an MCP tool to handle permission prompts in non-interactive mode.",
+      "type": "cli",
+      "example": "claude -p --permission-prompt-tool mcp_auth_tool \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--plugin-dir",
+      "description": "Load plugins from one or more directories for this session only.",
+      "type": "cli",
+      "example": "claude --plugin-dir ./my-plugins",
+      "aliases": []
+    },
+    {
+      "command": "--print, -p",
+      "description": "Print the response without interactive mode.",
+      "type": "cli",
+      "example": "claude -p \"query\"",
+      "aliases": []
+    },
+    {
+      "command": "--remote",
+      "description": "Create a new web session on claude.ai with the provided task description.",
+      "type": "cli",
+      "example": "claude --remote \"Fix the login bug\"",
+      "aliases": []
+    },
+    {
+      "command": "--remote-control, --rc",
+      "description": "Start an interactive session with Remote Control enabled.",
+      "type": "cli",
+      "example": "claude --remote-control \"My Project\"",
+      "aliases": []
+    },
+    {
+      "command": "--remote-control-session-name-prefix",
+      "description": "Prefix auto-generated Remote Control session names.",
+      "type": "cli",
+      "example": "claude remote-control --remote-control-session-name-prefix dev-box",
+      "aliases": []
+    },
+    {
+      "command": "--replay-user-messages",
+      "description": "Re-emit user messages from stdin back on stdout.",
+      "type": "cli",
+      "example": "claude -p --input-format stream-json --output-format stream-json --replay-user-messages",
+      "aliases": []
+    },
+    {
+      "command": "--resume, -r",
+      "description": "Resume a specific session by ID or name.",
+      "type": "cli",
+      "example": "claude --resume auth-refactor",
+      "aliases": []
+    },
+    {
+      "command": "--session-id",
+      "description": "Use a specific session ID for the conversation.",
+      "type": "cli",
+      "example": "claude --session-id \"550e8400-e29b-41d4-a716-446655440000\"",
+      "aliases": []
+    },
+    {
+      "command": "--setting-sources",
+      "description": "Choose which setting sources to load.",
+      "type": "cli",
+      "example": "claude --setting-sources user,project",
+      "aliases": []
+    },
+    {
+      "command": "--settings",
+      "description": "Load additional settings from a JSON file or JSON string.",
+      "type": "cli",
+      "example": "claude --settings ./settings.json",
+      "aliases": []
+    },
+    {
+      "command": "--strict-mcp-config",
+      "description": "Only use MCP servers from --mcp-config.",
+      "type": "cli",
+      "example": "claude --strict-mcp-config --mcp-config ./mcp.json",
+      "aliases": []
+    },
+    {
+      "command": "--system-prompt",
+      "description": "Replace the entire system prompt with custom text.",
+      "type": "cli",
+      "example": "claude --system-prompt \"You are a Python expert\"",
+      "aliases": []
+    },
+    {
+      "command": "--system-prompt-file",
+      "description": "Load system prompt from a file, replacing the default prompt.",
+      "type": "cli",
+      "example": "claude --system-prompt-file ./custom-prompt.txt",
+      "aliases": []
+    },
+    {
+      "command": "--teleport",
+      "description": "Resume a web session in your local terminal.",
+      "type": "cli",
+      "example": "claude --teleport",
+      "aliases": []
+    },
+    {
+      "command": "--teammate-mode",
+      "description": "Set how agent-team teammates display.",
+      "type": "cli",
+      "example": "claude --teammate-mode in-process",
+      "aliases": []
+    },
+    {
+      "command": "--tmux",
+      "description": "Create a tmux session for the worktree.",
+      "type": "cli",
+      "example": "claude -w feature-auth --tmux",
+      "aliases": []
+    },
+    {
+      "command": "--tools",
+      "description": "Restrict which built-in tools Claude can use.",
+      "type": "cli",
+      "example": "claude --tools \"Bash,Edit,Read\"",
+      "aliases": []
+    },
+    {
+      "command": "--verbose",
+      "description": "Enable verbose logging.",
+      "type": "cli",
+      "example": "claude --verbose",
+      "aliases": []
+    },
+    {
+      "command": "--version, -v",
+      "description": "Output the version number.",
+      "type": "cli",
+      "example": "claude -v",
+      "aliases": []
+    },
+    {
+      "command": "--worktree, -w",
+      "description": "Start Claude in an isolated git worktree.",
+      "type": "cli",
+      "example": "claude -w feature-auth",
+      "aliases": []
+    }
+  ]
+}

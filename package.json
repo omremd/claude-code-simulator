@@ -1,0 +1,12 @@
+{
+  "name": "claude-code-simulator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static Claude Code simulator for GitHub Pages",
+  "scripts": {
+    "sync:commands": "node scripts/sync-commands.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

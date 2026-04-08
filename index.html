@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Code Simulator</title>
+  <meta name="description" content="Claude Code simulator with an auto-updated command catalog." />
+  <link rel="icon" type="image/svg+xml" href="./claude.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="left-rail panel">
+      <div class="brand-block">
+        <div class="brand-mark" aria-hidden="true">
+          <img src="./claude.svg" alt="" />
+        </div>
+        <div>
+          <div class="eyebrow">Claude Code Simulator</div>
+          <a class="brand-link" href="https://www.linkedin.com/in/omremd" target="_blank" rel="noreferrer">Omar Emad</a>
+        </div>
+      </div>
+
+      <section class="rail-section">
+        <div class="section-label">Workspace</div>
+        <div class="workspace-card">
+          <div class="workspace-row"><span>cwd</span><strong id="cwdDisplay">~/project</strong></div>
+          <div class="workspace-row"><span>Session</span><strong id="sessionNameDisplay">untitled-session</strong></div>
+          <div class="workspace-row"><span>Model</span><strong id="modelDisplay">opus</strong></div>
+          <div class="workspace-row"><span>Effort</span><strong id="effortDisplay">medium</strong></div>
+        </div>
+      </section>
+
+      <section class="rail-section">
+        <div class="section-label">Project files</div>
+        <div class="tree-card" id="fileTree"></div>
+      </section>
+
+      <section class="rail-section">
+        <div class="section-label">Quick actions</div>
+        <div class="quick-actions">
+          <button class="ghost-btn" data-quick="/help">/help</button>
+          <button class="ghost-btn" data-quick="/status">/status</button>
+          <button class="ghost-btn" data-quick="/config">/config</button>
+          <button class="ghost-btn" data-quick="/permissions">/permissions</button>
+          <button class="ghost-btn" data-quick="/mcp">/mcp</button>
+          <button class="ghost-btn" data-quick="/stats">/stats</button>
+        </div>
+      </section>
+
+      <section class="rail-section">
+        <div class="section-label">Scenario Presets</div>
+        <div class="quick-actions">
+          <button class="ghost-btn" data-scenario="debug-bug">Debug Bug</button>
+          <button class="ghost-btn" data-scenario="review-pr">Review PR</button>
+          <button class="ghost-btn" data-scenario="refactor">Refactor</button>
+          <button class="ghost-btn" data-scenario="write-tests">Write Tests</button>
+          <button class="ghost-btn" data-scenario="fix-ci">Fix CI</button>
+        </div>
+      </section>
+    </aside>
+
+    <main class="main-stage">
+      <header class="topbar panel">
+        <div class="topbar-left">
+          <div class="window-controls" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <button id="onboardingButton" class="ghost-btn small" type="button">Guide</button>
+        </div>
+        <div class="topbar-title">claude code</div>
+        <div class="topbar-meta">
+          <button id="sessionsButton" class="ghost-btn small" type="button">Sessions</button>
+          <span class="pill subtle" id="versionBadge">v—</span>
+          <span class="pill accent" id="modeBadge">Interactive</span>
+        </div>
+      </header>
+
+      <section class="terminal panel">
+        <div class="terminal-scroll" id="terminalOutput" aria-live="polite"></div>
+
+        <div class="statusline" id="statusline">
+          <span id="statuslineSession">untitled-session</span>
+          <span>•</span>
+          <span id="statuslineModel">opus</span>
+          <span>•</span>
+          <span id="statuslinePerms">ask</span>
+          <span>•</span>
+          <span id="statuslineUsage">0.00 USD</span>
+        </div>
+
+        <div class="input-wrap">
+          <div class="input-row">
+            <span class="prompt">❯</span>
+            <div class="command-input-shell">
+              <input id="commandInput" class="command-input" type="text" spellcheck="false" autocomplete="off" placeholder="Try /help, /config, claude -p &quot;explain this file&quot;" />
+            </div>
+            <button id="runButton" class="primary-btn">Run</button>
+          </div>
+          <div id="commandSuggestion" class="command-suggestion hidden" aria-live="polite"></div>
+          <div class="input-hints">
+            <span>⌘K command palette</span>
+            <span>Tab autocomplete</span>
+            <span>↑↓ history</span>
+            <span>/ filters commands</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="right-rail panel">
+      <section class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-k">Source</span>
+          <a id="sourceLink" target="_blank" rel="noreferrer">Claude Code docs</a>
+        </div>
+        <div class="meta-item">
+          <span class="meta-k">Last sync</span>
+          <strong id="lastUpdated">—</strong>
+        </div>
+        <div class="meta-item">
+          <span class="meta-k">Commands</span>
+          <strong id="commandCount">0</strong>
+        </div>
+        <div class="meta-item">
+          <span class="meta-k">Visible</span>
+          <strong id="visibleCount">0</strong>
+        </div>
+      </section>
+
+      <section class="workspace-state-card">
+        <div class="section-headline">
+          <h2>Workspace State</h2>
+          <span class="pill subtle" id="gitBranchBadge">main</span>
+        </div>
+        <div class="workspace-state-grid">
+          <div class="meta-item">
+            <span class="meta-k">Changed files</span>
+            <strong id="changedFilesCount">0</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-k">Staged</span>
+            <strong id="stagedFilesCount">0</strong>
+          </div>
+          <div class="meta-item">
+            <span class="meta-k">Objective</span>
+            <strong id="workspaceObjective">—</strong>
+          </div>
+        </div>
+        <div id="workspaceFiles" class="workspace-files"></div>
+      </section>
+
+      <section class="catalog-head">
+        <div class="section-headline">
+          <h2>Command Explorer</h2>
+          <button id="paletteButton" class="ghost-btn small">⌘K</button>
+        </div>
+        <input id="searchInput" class="search-input" type="text" placeholder="Search /mcp or claude -p" />
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="built-in">Slash</button>
+          <button class="filter-btn" data-filter="cli">CLI</button>
+        </div>
+      </section>
+
+      <section id="commandList" class="command-list"></section>
+
+      <section class="details-card">
+        <div class="details-header">
+          <h3 id="selectedCommand">Select a command</h3>
+          <span class="pill subtle" id="selectedType">—</span>
+        </div>
+        <p id="selectedDescription" class="details-copy">Pick a command from the list or run it in the terminal.</p>
+        <div class="kv-block">
+          <span>Aliases</span>
+          <strong id="selectedAliases">—</strong>
+        </div>
+        <div class="kv-block">
+          <span>Example</span>
+          <pre id="selectedExample">claude</pre>
+        </div>
+      </section>
+
+      <section class="timeline-card">
+        <div class="section-headline">
+          <h2>Tool Timeline</h2>
+          <button id="clearTimelineButton" class="ghost-btn small" type="button">Clear</button>
+        </div>
+        <div id="toolTimeline" class="tool-timeline"></div>
+      </section>
+    </aside>
+  </div>
+
+  <div class="overlay hidden" id="overlay"></div>
+
+  <section class="modal hidden" id="panelModal" aria-modal="true" role="dialog">
+    <div class="modal-header">
+      <div>
+        <div class="eyebrow" id="modalKicker">Claude Code</div>
+        <h3 id="modalTitle">Panel</h3>
+      </div>
+      <button id="closeModalButton" class="ghost-btn small">Close</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </section>
+
+  <section class="palette hidden" id="commandPalette" aria-modal="true" role="dialog">
+    <div class="palette-head">
+      <input id="paletteInput" type="text" placeholder="Type a command or search the catalog" />
+      <button id="closePaletteButton" class="ghost-btn small">Esc</button>
+    </div>
+    <div id="paletteResults" class="palette-results"></div>
+  </section>
+
+  <template id="bootTemplate">
+    <div class="welcome-card">
+      <div class="welcome-head">
+        <div class="claude-mascot" aria-hidden="true">
+          <img src="./clawd.png" alt="" />
+        </div>
+        <div>
+          <div class="welcome-title">Welcome to Claude Code Simulator</div>
+          <p class="welcome-copy">/help for help, /status for your current setup</p>
+          <div class="welcome-meta">cwd: <span data-bind="cwd"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout-grid">
+      <div class="callout-card"><strong>/config</strong><span>Open a tabbed settings-style panel and tweak stateful options.</span></div>
+      <div class="callout-card"><strong>/permissions</strong><span>Review allow, ask, and deny rules with a fake interactive manager.</span></div>
+      <div class="callout-card"><strong>/mcp</strong><span>Inspect connected MCP servers, prompts, and tool availability.</span></div>
+      <div class="callout-card"><strong>claude -p</strong><span>Simulate one-shot CLI requests and structured output.</span></div>
+    </div>
+  </template>
+
+  <input id="sessionImportInput" type="file" accept="application/json" class="hidden" />
+  <script src="app.js"></script>
+</body>
+</html>
