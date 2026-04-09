@@ -707,6 +707,12 @@ a:hover { text-decoration: underline; }
 @media (max-width: 1080px) {
   .app-shell { grid-template-columns: 1fr; }
   .left-rail, .right-rail { min-height: auto; }
+  .left-rail {
+    position: static;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+  }
   .main-stage {
     width: 100%;
     height: auto;
