@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-09",
-  "currentVersion": "2.1.97",
+  "lastUpdated": "2026-04-10",
+  "currentVersion": "2.1.98",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -30,6 +30,13 @@
       "aliases": []
     },
     {
+      "command": "/batch <instruction>",
+      "description": "Skill. Orchestrate large-scale changes across a codebase in parallel. Researches the codebase, decomposes the work into 5 to 30 independent units, and presents a plan. Once approved, spawns one background agent per unit in an isolated git worktree. Each agent implements its unit, runs tests, and opens a pull request. Requires a git repository. Example: /batch migrate src/ from Solid to React",
+      "type": "built-in",
+      "example": "/batch <instruction>",
+      "aliases": []
+    },
+    {
       "command": "/branch [name]",
       "description": "Create a branch of the current conversation at this point. Alias: /fork",
       "type": "built-in",
@@ -48,6 +55,13 @@
       "description": "Configure Claude in Chrome settings",
       "type": "built-in",
       "example": "/chrome",
+      "aliases": []
+    },
+    {
+      "command": "/claude-api",
+      "description": "Skill. Load Claude API reference material for your project’s language (Python, TypeScript, Java, Go, Ruby, C#, PHP, or cURL). Covers tool use, streaming, batches, structured outputs, Managed Agents, and common pitfalls. Also activates automatically when your code imports anthropic or @anthropic-ai/sdk",
+      "type": "built-in",
+      "example": "/claude-api",
       "aliases": []
     },
     {
@@ -102,6 +116,13 @@
       "description": "Show token usage statistics. See cost tracking guide for subscription-specific details",
       "type": "built-in",
       "example": "/cost",
+      "aliases": []
+    },
+    {
+      "command": "/debug [description]",
+      "description": "Skill. Enable debug logging for the current session and troubleshoot issues by reading the session debug log. Debug logging is off by default unless you started with claude --debug, so running /debug mid-session starts capturing logs from that point forward. Optionally describe the issue to focus the analysis",
+      "type": "built-in",
+      "example": "/debug [description]",
       "aliases": []
     },
     {
@@ -239,6 +260,13 @@
       "description": "Sign out from your Anthropic account",
       "type": "built-in",
       "example": "/logout",
+      "aliases": []
+    },
+    {
+      "command": "/loop [interval] <prompt>",
+      "description": "Skill. Run a prompt repeatedly on an interval while the session stays open. Useful for polling a deployment, babysitting a PR, or periodically re-running another skill. Example: /loop 5m check if the deploy finished. See Run prompts on a schedule",
+      "type": "built-in",
+      "example": "/loop [interval] <prompt>",
       "aliases": []
     },
     {
@@ -409,6 +437,20 @@
       "description": "Configure Amazon Bedrock authentication, region, and model pins through an interactive wizard. Only visible when CLAUDE_CODE_USE_BEDROCK=1 is set. First-time Bedrock users can also access this wizard from the login screen",
       "type": "built-in",
       "example": "/setup-bedrock",
+      "aliases": []
+    },
+    {
+      "command": "/setup-vertex",
+      "description": "Configure Google Vertex AI authentication, project, region, and model pins through an interactive wizard. Only visible when CLAUDE_CODE_USE_VERTEX=1 is set. First-time Vertex AI users can also access this wizard from the login screen",
+      "type": "built-in",
+      "example": "/setup-vertex",
+      "aliases": []
+    },
+    {
+      "command": "/simplify [focus]",
+      "description": "Skill. Review your recently changed files for code reuse, quality, and efficiency issues, then fix them. Spawns three review agents in parallel, aggregates their findings, and applies fixes. Pass text to focus on specific concerns: /simplify focus on memory efficiency",
+      "type": "built-in",
+      "example": "/simplify [focus]",
       "aliases": []
     },
     {
@@ -656,6 +698,13 @@
       "description": "Unlock auto mode in the Shift+Tab cycle. Requires a Team, Enterprise, or API plan and Claude Sonnet 4.6 or Opus 4.6",
       "type": "cli",
       "example": "claude --enable-auto-mode",
+      "aliases": []
+    },
+    {
+      "command": "--exclude-dynamic-system-prompt-sections",
+      "description": "Move per-machine sections from the system prompt (working directory, environment info, memory paths, git status) into the first user message. Improves prompt-cache reuse across different users and machines running the same task. Only applies with the default system prompt; ignored when --system-prompt or --system-prompt-file is set. Use with -p for scripted, multi-user workloads",
+      "type": "cli",
+      "example": "claude -p --exclude-dynamic-system-prompt-sections \"query\"",
       "aliases": []
     },
     {
@@ -1054,6 +1103,13 @@
       "description": "Start a Remote Control server to control Claude Code from Claude.ai or the Claude app. Runs in server mode (no local interactive session). See Server mode flags",
       "type": "cli",
       "example": "claude remote-control --name \"My Project\"",
+      "aliases": []
+    },
+    {
+      "command": "claude setup-token",
+      "description": "Generate a long-lived OAuth token for CI and scripts. Prints the token to the terminal without saving it. Requires a Claude subscription. See Generate a long-lived token",
+      "type": "cli",
+      "example": "claude setup-token",
       "aliases": []
     },
     {
