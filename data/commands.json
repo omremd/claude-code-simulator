@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-13",
-  "currentVersion": "2.1.101",
+  "lastUpdated": "2026-04-14",
+  "currentVersion": "2.1.105",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -143,7 +143,7 @@
     },
     {
       "command": "/doctor",
-      "description": "Diagnose and verify your Claude Code installation and settings",
+      "description": "Diagnose and verify your Claude Code installation and settings. Results show with status icons. Press f to have Claude fix any reported issues",
       "type": "built-in",
       "example": "/doctor",
       "aliases": []
@@ -264,7 +264,7 @@
     },
     {
       "command": "/loop [interval] [prompt]",
-      "description": "Skill. Run a prompt repeatedly while the session stays open. Omit the interval and Claude self-paces between iterations. Omit the prompt and Claude runs an autonomous maintenance check, or the prompt in .claude/loop.md if present. Example: /loop 5m check if the deploy finished. See Run prompts on a schedule",
+      "description": "Skill. Run a prompt repeatedly while the session stays open. Omit the interval and Claude self-paces between iterations. Omit the prompt and Claude runs an autonomous maintenance check, or the prompt in .claude/loop.md if present. Example: /loop 5m check if the deploy finished. See Run prompts on a schedule. Alias: /proactive",
       "type": "built-in",
       "example": "/loop [interval] [prompt]",
       "aliases": []
@@ -496,6 +496,13 @@
       "aliases": [
         "/bashes"
       ]
+    },
+    {
+      "command": "/team-onboarding",
+      "description": "Generate a team onboarding guide from your Claude Code usage history. Claude analyzes your sessions, commands, and MCP server usage from the past 30 days and produces a markdown guide a teammate can paste as a first message to get set up quickly",
+      "type": "built-in",
+      "example": "/team-onboarding",
+      "aliases": []
     },
     {
       "command": "/teleport",
