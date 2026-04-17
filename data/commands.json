@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-16",
-  "currentVersion": "2.1.110",
+  "lastUpdated": "2026-04-17",
+  "currentVersion": "2.1.112",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -66,7 +66,7 @@
     },
     {
       "command": "/clear",
-      "description": "Clear conversation history and free up context. Aliases: /reset, /new",
+      "description": "Start a new conversation with empty context. The previous conversation stays available in /resume. To free up context while continuing the same conversation, use /compact instead. Aliases: /reset, /new",
       "type": "built-in",
       "example": "/clear",
       "aliases": [
@@ -149,10 +149,10 @@
       "aliases": []
     },
     {
-      "command": "/effort [low|medium|high|max|auto]",
-      "description": "Set the model effort level. low, medium, and high persist across sessions. max applies to the current session only and requires Opus 4.6. auto resets to the model default. Without an argument, shows the current level. Takes effect immediately without waiting for the current response to finish",
+      "command": "/effort [level|auto]",
+      "description": "Set the model effort level. Accepts low, medium, high, xhigh, or max; available levels depend on the model and max is session-only. auto resets to the model default. Without an argument, opens an interactive slider; use left and right arrows to pick a level and Enter to apply. Takes effect immediately without waiting for the current response to finish",
       "type": "built-in",
-      "example": "/effort [low|medium|high|max|auto]",
+      "example": "/effort [level|auto]",
       "aliases": []
     },
     {
@@ -190,6 +190,20 @@
       "description": "Submit feedback about Claude Code. Alias: /bug",
       "type": "built-in",
       "example": "/feedback [report]",
+      "aliases": []
+    },
+    {
+      "command": "/focus",
+      "description": "Toggle the focus view, which shows only your last prompt, a one-line tool-call summary with edit diffstats, and the final response. The selection persists across sessions. Only available in fullscreen rendering",
+      "type": "built-in",
+      "example": "/focus",
+      "aliases": []
+    },
+    {
+      "command": "/heapdump",
+      "description": "Write a JavaScript heap snapshot and a memory breakdown to ~/Desktop for diagnosing high memory usage. See troubleshooting",
+      "type": "built-in",
+      "example": "/heapdump",
       "aliases": []
     },
     {
@@ -249,6 +263,13 @@
       "aliases": []
     },
     {
+      "command": "/less-permission-prompts",
+      "description": "Skill. Scan your transcripts for common read-only Bash and MCP tool calls, then add a prioritized allowlist to project .claude/settings.json to reduce permission prompts",
+      "type": "built-in",
+      "example": "/less-permission-prompts",
+      "aliases": []
+    },
+    {
       "command": "/login",
       "description": "Sign in to your Anthropic account",
       "type": "built-in",
@@ -295,7 +316,7 @@
     },
     {
       "command": "/model [model]",
-      "description": "Select or change the AI model. For models that support it, use left/right arrows to adjust effort level. The change takes effect immediately without waiting for the current response to finish",
+      "description": "Select or change the AI model. For models that support it, use left/right arrows to adjust effort level. With no argument, opens a picker that asks for confirmation when the conversation has prior output, since the next response re-reads the full history without cached context. Once confirmed, the change applies without waiting for the current response to finish",
       "type": "built-in",
       "example": "/model [model]",
       "aliases": []
@@ -352,6 +373,13 @@
       "aliases": []
     },
     {
+      "command": "/recap",
+      "description": "Generate a one-line summary of the current session on demand. See Session recap for the automatic recap that appears after you’ve been away",
+      "type": "built-in",
+      "example": "/recap",
+      "aliases": []
+    },
+    {
       "command": "/release-notes",
       "description": "View the changelog in an interactive version picker. Select a specific version to see its release notes, or choose to show all versions",
       "type": "built-in",
@@ -396,15 +424,15 @@
       "aliases": []
     },
     {
-      "command": "/review",
-      "description": "Deprecated. Install the code-review plugin instead: claude plugin install code-review@claude-plugins-official",
+      "command": "/review [PR]",
+      "description": "Review a pull request locally in your current session. For a deeper cloud-based review, see /ultrareview",
       "type": "built-in",
-      "example": "/review",
+      "example": "/review [PR]",
       "aliases": []
     },
     {
       "command": "/rewind",
-      "description": "Rewind the conversation and/or code to a previous point, or summarize from a selected message. See checkpointing. Alias: /checkpoint",
+      "description": "Rewind the conversation and/or code to a previous point, or summarize from a selected message. See checkpointing. Aliases: /checkpoint, /undo",
       "type": "built-in",
       "example": "/rewind",
       "aliases": [
@@ -420,7 +448,7 @@
     },
     {
       "command": "/schedule [description]",
-      "description": "Create, update, list, or run routines. Claude walks you through the setup conversationally",
+      "description": "Create, update, list, or run routines. Claude walks you through the setup conversationally. Alias: /routines",
       "type": "built-in",
       "example": "/schedule [description]",
       "aliases": []
@@ -455,7 +483,7 @@
     },
     {
       "command": "/skills",
-      "description": "List available skills",
+      "description": "List available skills. Press t to sort by token count",
       "type": "built-in",
       "example": "/skills",
       "aliases": []
@@ -520,9 +548,16 @@
     },
     {
       "command": "/theme",
-      "description": "Change the color theme. Includes light and dark variants, colorblind-accessible (daltonized) themes, and ANSI themes that use your terminal’s color palette",
+      "description": "Change the color theme. Includes an auto option that follows your terminal’s dark or light mode, light and dark variants, colorblind-accessible (daltonized) themes, and ANSI themes that use your terminal’s color palette",
       "type": "built-in",
       "example": "/theme",
+      "aliases": []
+    },
+    {
+      "command": "/tui [default|fullscreen]",
+      "description": "Set the terminal UI renderer and relaunch into it with your conversation intact. fullscreen enables the flicker-free alt-screen renderer. With no argument, prints the active renderer",
+      "type": "built-in",
+      "example": "/tui [default|fullscreen]",
       "aliases": []
     },
     {
@@ -530,6 +565,13 @@
       "description": "Draft a plan in an ultraplan session, review it in your browser, then execute remotely or send it back to your terminal",
       "type": "built-in",
       "example": "/ultraplan <prompt>",
+      "aliases": []
+    },
+    {
+      "command": "/ultrareview [PR]",
+      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max, then requires extra usage",
+      "type": "built-in",
+      "example": "/ultrareview [PR]",
       "aliases": []
     },
     {
@@ -695,16 +737,16 @@
     },
     {
       "command": "--effort",
-      "description": "Set the effort level for the current session. Options: low, medium, high, max (Opus 4.6 only). Session-scoped and does not persist to settings",
+      "description": "Set the effort level for the current session. Options: low, medium, high, xhigh, max; available levels depend on the model. Session-scoped and does not persist to settings",
       "type": "cli",
       "example": "claude --effort high",
       "aliases": []
     },
     {
       "command": "--enable-auto-mode",
-      "description": "Unlock auto mode in the Shift+Tab cycle. Requires a Team, Enterprise, or API plan and Claude Sonnet 4.6 or Opus 4.6",
+      "description": "Removed in v2.1.111. Auto mode is now in the Shift+Tab cycle by default; use --permission-mode auto to start in it",
       "type": "cli",
-      "example": "claude --enable-auto-mode",
+      "example": "claude --permission-mode auto",
       "aliases": []
     },
     {
