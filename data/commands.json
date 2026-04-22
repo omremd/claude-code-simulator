@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-21",
-  "currentVersion": "2.1.116",
+  "lastUpdated": "2026-04-22",
+  "currentVersion": "2.1.117",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -569,7 +569,7 @@
     },
     {
       "command": "/ultrareview [PR]",
-      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max, then requires extra usage",
+      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max through May 5, 2026, then requires extra usage",
       "type": "built-in",
       "example": "/ultrareview [PR]",
       "aliases": []
