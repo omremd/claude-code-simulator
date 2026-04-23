@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-22",
-  "currentVersion": "2.1.117",
+  "lastUpdated": "2026-04-23",
+  "currentVersion": "2.1.118",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -596,10 +596,10 @@
       "aliases": []
     },
     {
-      "command": "/voice",
-      "description": "Toggle push-to-talk voice dictation. Requires a Claude.ai account",
+      "command": "/voice [hold|tap|off]",
+      "description": "Toggle voice dictation, or enable it in a specific mode. Requires a Claude.ai account",
       "type": "built-in",
-      "example": "/voice",
+      "example": "/voice [hold|tap|off]",
       "aliases": []
     },
     {
