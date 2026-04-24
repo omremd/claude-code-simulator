@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-23",
-  "currentVersion": "2.1.118",
+  "lastUpdated": "2026-04-24",
+  "currentVersion": "2.1.119",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -10,7 +10,7 @@
   "commands": [
     {
       "command": "/add-dir <path>",
-      "description": "Add a working directory for file access during the current session. Most .claude/ configuration is not discovered from the added directory",
+      "description": "Add a working directory for file access during the current session. Most .claude/ configuration is not discovered from the added directory. You can later resume the session from the added directory with --continue or --resume",
       "type": "built-in",
       "example": "/add-dir <path>",
       "aliases": []
@@ -38,7 +38,7 @@
     },
     {
       "command": "/branch [name]",
-      "description": "Create a branch of the current conversation at this point. Switches you into the branch and preserves the original, which you can return to with /resume. Alias: /fork",
+      "description": "Create a branch of the current conversation at this point. Switches you into the branch and preserves the original, which you can return to with /resume. Alias: /fork. When CLAUDE_CODE_FORK_SUBAGENT is set, /fork instead spawns a forked subagent and is no longer an alias for this command",
       "type": "built-in",
       "example": "/branch [name]",
       "aliases": []
@@ -76,7 +76,7 @@
     },
     {
       "command": "/color [color|default]",
-      "description": "Set the prompt bar color for the current session. Available colors: red, blue, green, yellow, purple, orange, pink, cyan. Use default to reset",
+      "description": "Set the prompt bar color for the current session. Available colors: red, blue, green, yellow, purple, orange, pink, cyan. Use default to reset. When Remote Control is connected, the color syncs to claude.ai/code",
       "type": "built-in",
       "example": "/color [color|default]",
       "aliases": []
@@ -113,7 +113,7 @@
     },
     {
       "command": "/cost",
-      "description": "Show token usage statistics. See cost tracking guide for subscription-specific details",
+      "description": "Alias for /usage",
       "type": "built-in",
       "example": "/cost",
       "aliases": []
@@ -490,7 +490,7 @@
     },
     {
       "command": "/stats",
-      "description": "Visualize daily usage, session history, streaks, and model preferences",
+      "description": "Alias for /usage. Opens on the Stats tab",
       "type": "built-in",
       "example": "/stats",
       "aliases": []
@@ -548,7 +548,7 @@
     },
     {
       "command": "/theme",
-      "description": "Change the color theme. Includes an auto option that matches your terminal’s light or dark background, light and dark variants, colorblind-accessible (daltonized) themes, and ANSI themes that use your terminal’s color palette",
+      "description": "Change the color theme. Includes an auto option that matches your terminal’s light or dark background, light and dark variants, colorblind-accessible (daltonized) themes, ANSI themes that use your terminal’s color palette, and any custom themes from ~/.claude/themes/ or plugins. Select New custom theme… to create one",
       "type": "built-in",
       "example": "/theme",
       "aliases": []
@@ -583,7 +583,7 @@
     },
     {
       "command": "/usage",
-      "description": "Show plan usage limits and rate limit status",
+      "description": "Show session cost, plan usage limits, and activity stats. See the cost tracking guide for subscription-specific details. /cost and /stats are aliases",
       "type": "built-in",
       "example": "/usage",
       "aliases": []
@@ -688,7 +688,7 @@
     },
     {
       "command": "--continue, -c",
-      "description": "Load the most recent conversation in the current directory",
+      "description": "Load the most recent conversation in the current directory. Includes sessions that added this directory with /add-dir",
       "type": "cli",
       "example": "claude --continue",
       "aliases": []
@@ -947,7 +947,7 @@
     },
     {
       "command": "--resume, -r",
-      "description": "Resume a specific session by ID or name, or show an interactive picker to choose a session",
+      "description": "Resume a specific session by ID or name, or show an interactive picker to choose a session. Includes sessions that added this directory with /add-dir",
       "type": "cli",
       "example": "claude --resume auth-refactor",
       "aliases": []
@@ -1129,6 +1129,13 @@
       "description": "Print the built-in auto mode classifier rules as JSON. Use claude auto-mode config to see your effective config with settings applied",
       "type": "cli",
       "example": "claude auto-mode defaults > rules.json",
+      "aliases": []
+    },
+    {
+      "command": "claude install [version]",
+      "description": "Install or reinstall the native binary. Accepts a version like 2.1.118, or stable or latest. See Install a specific version",
+      "type": "cli",
+      "example": "claude install stable",
       "aliases": []
     },
     {
