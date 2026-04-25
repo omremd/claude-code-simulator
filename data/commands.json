@@ -1167,6 +1167,13 @@
       "type": "cli",
       "example": "claude setup-token",
       "aliases": []
+    },
+    {
+      "command": "claude update",
+      "description": "Update to latest version",
+      "type": "cli",
+      "example": "claude update",
+      "aliases": []
     }
   ]
 }
