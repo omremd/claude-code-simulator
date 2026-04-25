@@ -3,7 +3,7 @@ name: Sync Claude Code commands
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 5 * * *" # 8 AM Egypt time
 
 permissions:
   contents: write
@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Save old commands
+        run: cp data/commands.json /tmp/old-commands.json
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -27,6 +30,11 @@ jobs:
 
       - name: Sync commands
         run: npm run sync:commands
+
+      - name: Notify Slack for new commands
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: node scripts/check-and-notify.js
 
       - name: Commit updated command catalog
         run: |
