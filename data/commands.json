@@ -568,6 +568,13 @@
       "aliases": []
     },
     {
+      "command": "/ultrareview [PR]",
+      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max through May 5, 2026, then requires extra usage",
+      "type": "built-in",
+      "example": "/ultrareview [PR]",
+      "aliases": []
+    },
+    {
       "command": "/upgrade",
       "description": "Open the upgrade page to switch to a higher plan tier",
       "type": "built-in",
