@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-25",
+  "lastUpdated": "2026-04-26",
   "currentVersion": "2.1.119",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
@@ -58,10 +58,10 @@
       "aliases": []
     },
     {
-      "command": "/claude-api",
-      "description": "Skill. Load Claude API reference material for your project’s language (Python, TypeScript, Java, Go, Ruby, C#, PHP, or cURL) and Managed Agents reference. Covers tool use, streaming, batches, structured outputs, and common pitfalls. Also activates automatically when your code imports anthropic or @anthropic-ai/sdk",
+      "command": "/claude-api [migrate|managed-agents-onboard]",
+      "description": "Skill. Load Claude API reference material for your project’s language (Python, TypeScript, Java, Go, Ruby, C#, PHP, or cURL) and Managed Agents reference. Covers tool use, streaming, batches, structured outputs, and common pitfalls. Also activates automatically when your code imports anthropic or @anthropic-ai/sdk. Run /claude-api migrate to upgrade existing Claude API code to a newer model: Claude asks which files to scan and which model to target, then updates model IDs, thinking configuration, and other parameters that changed between versions. Run /claude-api managed-agents-onboard for an interactive walkthrough that creates a new Managed Agent from scratch",
       "type": "built-in",
-      "example": "/claude-api",
+      "example": "/claude-api [migrate|managed-agents-onboard]",
       "aliases": []
     },
     {
