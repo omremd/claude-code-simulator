@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-27",
-  "currentVersion": "2.1.119",
+  "lastUpdated": "2026-04-29",
+  "currentVersion": "2.1.123",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -208,7 +208,7 @@
     },
     {
       "command": "/heapdump",
-      "description": "Write a JavaScript heap snapshot and a memory breakdown to ~/Desktop for diagnosing high memory usage. See troubleshooting",
+      "description": "Write a JavaScript heap snapshot and a memory breakdown to ~/Desktop, or your home directory on Linux without a Desktop folder, for diagnosing high memory usage. See troubleshooting",
       "type": "built-in",
       "example": "/heapdump",
       "aliases": []
@@ -800,14 +800,14 @@
     },
     {
       "command": "--init",
-      "description": "Run initialization hooks and start interactive mode",
+      "description": "Run Setup hooks with the init matcher before the session (print mode only)",
       "type": "cli",
-      "example": "claude --init",
+      "example": "claude -p --init \"query\"",
       "aliases": []
     },
     {
       "command": "--init-only",
-      "description": "Run initialization hooks and exit (no interactive session)",
+      "description": "Run Setup and SessionStart hooks, then exit without starting a conversation",
       "type": "cli",
       "example": "claude --init-only",
       "aliases": []
@@ -828,9 +828,9 @@
     },
     {
       "command": "--maintenance",
-      "description": "Run maintenance hooks and start interactive mode",
+      "description": "Run Setup hooks with the maintenance matcher before the session (print mode only)",
       "type": "cli",
-      "example": "claude --maintenance",
+      "example": "claude -p --maintenance \"query\"",
       "aliases": []
     },
     {
@@ -1166,6 +1166,13 @@
       "description": "Generate a long-lived OAuth token for CI and scripts. Prints the token to the terminal without saving it. Requires a Claude subscription. See Generate a long-lived token",
       "type": "cli",
       "example": "claude setup-token",
+      "aliases": []
+    },
+    {
+      "command": "claude ultrareview [target]",
+      "description": "Run ultrareview non-interactively. Prints findings to stdout and exits 0 on success or 1 on failure. Use --json for the raw payload and --timeout <minutes> to override the 30-minute default",
+      "type": "cli",
+      "example": "claude ultrareview 1234 --json",
       "aliases": []
     },
     {
