@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-04-30",
-  "currentVersion": "2.1.123",
+  "lastUpdated": "2026-05-01",
+  "currentVersion": "2.1.126",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -1153,6 +1153,13 @@
       "aliases": [
         "claude plugins"
       ]
+    },
+    {
+      "command": "claude project purge [path]",
+      "description": "Delete all local Claude Code state for a project: transcripts, task lists, debug logs, file-edit history, prompt history lines, and the project’s entry in ~/.claude.json. Omit [path] to pick from an interactive list. Flags: --dry-run to preview, -y/--yes to skip confirmation, -i/--interactive to confirm each item, --all for every project. See Clear local data",
+      "type": "cli",
+      "example": "claude project purge ~/work/repo --dry-run",
+      "aliases": []
     },
     {
       "command": "claude remote-control",
