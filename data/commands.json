@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-05",
-  "currentVersion": "2.1.128",
+  "lastUpdated": "2026-05-06",
+  "currentVersion": "2.1.129",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -76,7 +76,7 @@
     },
     {
       "command": "/color [color|default]",
-      "description": "Set the prompt bar color for the current session. Available colors: red, blue, green, yellow, purple, orange, pink, cyan. Use default to reset. When Remote Control is connected, the color syncs to claude.ai/code",
+      "description": "Set the prompt bar color for the current session. Available colors: red, blue, green, yellow, purple, orange, pink, cyan. Use default to reset, or run with no argument to pick a random color. When Remote Control is connected, the color syncs to claude.ai/code",
       "type": "built-in",
       "example": "/color [color|default]",
       "aliases": []
@@ -201,7 +201,7 @@
     },
     {
       "command": "/focus",
-      "description": "Toggle the focus view, which shows only your last prompt, a one-line tool-call summary with edit diffstats, and the final response. The selection persists across sessions. Only available in fullscreen rendering",
+      "description": "Toggle the focus view, which shows only your last prompt, a one-line tool-call summary with edit diffstats, and the final response. The selection persists across sessions; set viewMode in settings to override it. Only available in fullscreen rendering",
       "type": "built-in",
       "example": "/focus",
       "aliases": []
@@ -527,7 +527,7 @@
     },
     {
       "command": "/team-onboarding",
-      "description": "Generate a team onboarding guide from your Claude Code usage history. Claude analyzes your sessions, commands, and MCP server usage from the past 30 days and produces a markdown guide a teammate can paste as a first message to get set up quickly",
+      "description": "Generate a team onboarding guide from your Claude Code usage history. Claude analyzes your sessions, commands, and MCP server usage from the past 30 days and produces a markdown guide a teammate can paste as a first message to get set up quickly. For claude.ai subscribers on Pro, Max, Team, and Enterprise plans, also returns a share link teammates can open directly in Claude Code",
       "type": "built-in",
       "example": "/team-onboarding",
       "aliases": []
@@ -905,9 +905,9 @@
     },
     {
       "command": "--plugin-dir",
-      "description": "Load plugins from a directory for this session only. Each flag takes one path. Repeat the flag for multiple directories: --plugin-dir A --plugin-dir B",
+      "description": "Load a plugin from a directory or .zip archive for this session only. Each flag takes one path. Repeat the flag for multiple plugins: --plugin-dir A --plugin-dir B.zip",
       "type": "cli",
-      "example": "claude --plugin-dir ./my-plugins",
+      "example": "claude --plugin-dir ./my-plugin",
       "aliases": []
     },
     {
