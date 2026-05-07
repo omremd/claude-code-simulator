@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-06",
-  "currentVersion": "2.1.129",
+  "lastUpdated": "2026-05-07",
+  "currentVersion": "2.1.132",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -483,7 +483,7 @@
     },
     {
       "command": "/skills",
-      "description": "List available skills. Press t to sort by token count",
+      "description": "List available skills. Press t to sort by token count. Press Space to hide a skill from Claude or the / menu, then Enter to save",
       "type": "built-in",
       "example": "/skills",
       "aliases": []
@@ -911,6 +911,13 @@
       "aliases": []
     },
     {
+      "command": "--plugin-url",
+      "description": "Fetch a plugin .zip archive from a URL for this session only. Each flag takes one URL. Repeat the flag for multiple plugins",
+      "type": "cli",
+      "example": "claude --plugin-url https://example.com/plugin.zip",
+      "aliases": []
+    },
+    {
       "command": "--print, -p",
       "description": "Print response without interactive mode (see Agent SDK documentation for programmatic usage details)",
       "type": "cli",
@@ -968,7 +975,7 @@
     },
     {
       "command": "--settings",
-      "description": "Path to a settings JSON file or a JSON string to load additional settings from",
+      "description": "Path to a settings JSON file or an inline JSON string. Values you set here override the same keys in your settings.json files for this session. Keys you omit keep their file-based values. See settings precedence",
       "type": "cli",
       "example": "claude --settings ./settings.json",
       "aliases": []
