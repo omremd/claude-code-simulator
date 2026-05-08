@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-07",
-  "currentVersion": "2.1.132",
+  "lastUpdated": "2026-05-08",
+  "currentVersion": "2.1.133",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -611,7 +611,7 @@
     },
     {
       "command": "--add-dir",
-      "description": "Add additional working directories for Claude to read and edit files. Grants file access; most .claude/ configuration is not discovered from these directories. Validates each path exists as a directory",
+      "description": "Add additional working directories for Claude to read and edit files. Grants file access; most .claude/ configuration is not discovered from these directories. Validates each path exists as a directory. To persist these directories across sessions, set permissions.additionalDirectories in settings",
       "type": "cli",
       "example": "claude --add-dir ../apps ../lib",
       "aliases": []
@@ -737,7 +737,7 @@
     },
     {
       "command": "--effort",
-      "description": "Set the effort level for the current session. Options: low, medium, high, xhigh, max; available levels depend on the model. Session-scoped and does not persist to settings",
+      "description": "Set the effort level for the current session. Options: low, medium, high, xhigh, max; available levels depend on the model. Overrides the effortLevel setting for this session and does not persist",
       "type": "cli",
       "example": "claude --effort high",
       "aliases": []
@@ -856,7 +856,7 @@
     },
     {
       "command": "--model",
-      "description": "Sets the model for the current session with an alias for the latest model (sonnet or opus) or a model’s full name",
+      "description": "Sets the model for the current session with an alias for the latest model (sonnet or opus) or a model’s full name. Overrides the model setting and ANTHROPIC_MODEL",
       "type": "cli",
       "example": "claude --model claude-sonnet-4-6",
       "aliases": []
@@ -877,7 +877,7 @@
     },
     {
       "command": "--no-session-persistence",
-      "description": "Disable session persistence so sessions are not saved to disk and cannot be resumed (print mode only)",
+      "description": "Disable session persistence so sessions are not saved to disk and cannot be resumed. Print mode only. The CLAUDE_CODE_SKIP_PROMPT_HISTORY environment variable does the same in any mode",
       "type": "cli",
       "example": "claude -p --no-session-persistence \"query\"",
       "aliases": []
@@ -912,7 +912,7 @@
     },
     {
       "command": "--plugin-url",
-      "description": "Fetch a plugin .zip archive from a URL for this session only. Each flag takes one URL. Repeat the flag for multiple plugins",
+      "description": "Fetch a plugin .zip archive from a URL for this session only. Repeat the flag for multiple plugins, or pass space-separated URLs in a single quoted value",
       "type": "cli",
       "example": "claude --plugin-url https://example.com/plugin.zip",
       "aliases": []
@@ -1003,7 +1003,7 @@
     },
     {
       "command": "--teammate-mode",
-      "description": "Set how agent team teammates display: auto (default), in-process, or tmux. See Choose a display mode",
+      "description": "Set how agent team teammates display: auto (default), in-process, or tmux. Overrides the teammateMode setting for this session. See Choose a display mode",
       "type": "cli",
       "example": "claude --teammate-mode in-process",
       "aliases": []
@@ -1031,7 +1031,7 @@
     },
     {
       "command": "--verbose",
-      "description": "Enable verbose logging, shows full turn-by-turn output",
+      "description": "Enable verbose logging, shows full turn-by-turn output. Overrides the viewMode setting for this session",
       "type": "cli",
       "example": "claude --verbose",
       "aliases": []
@@ -1045,7 +1045,7 @@
     },
     {
       "command": "--worktree, -w",
-      "description": "Start Claude in an isolated git worktree at <repo>/.claude/worktrees/<name>. If no name is given, one is auto-generated",
+      "description": "Start Claude in an isolated git worktree at <repo>/.claude/worktrees/<name>. If no name is given, one is auto-generated. Pass #<number> or a GitHub pull request URL to fetch that PR from origin and branch the worktree from it",
       "type": "cli",
       "example": "claude -w feature-auth",
       "aliases": []
