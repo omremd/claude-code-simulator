@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-08",
-  "currentVersion": "2.1.133",
+  "lastUpdated": "2026-05-09",
+  "currentVersion": "2.1.138",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -65,14 +65,11 @@
       "aliases": []
     },
     {
-      "command": "/clear",
-      "description": "Start a new conversation with empty context. The previous conversation stays available in /resume. To free up context while continuing the same conversation, use /compact instead. Aliases: /reset, /new",
+      "command": "/clear [name]",
+      "description": "Start a new conversation with empty context. The previous conversation stays available in /resume. Pass a name to label the previous conversation in the /resume picker. To free up context while continuing the same conversation, use /compact instead. Aliases: /reset, /new",
       "type": "built-in",
-      "example": "/clear",
-      "aliases": [
-        "/reset",
-        "/new"
-      ]
+      "example": "/clear [name]",
+      "aliases": []
     },
     {
       "command": "/color [color|default]",
@@ -98,10 +95,10 @@
       ]
     },
     {
-      "command": "/context",
-      "description": "Visualize current context usage as a colored grid. Shows optimization suggestions for context-heavy tools, memory bloat, and capacity warnings",
+      "command": "/context [all]",
+      "description": "Visualize current context usage as a colored grid. Shows optimization suggestions for context-heavy tools, memory bloat, and capacity warnings. In fullscreen mode the per-item breakdown is collapsed to keep the grid visible. Pass all to expand it",
       "type": "built-in",
-      "example": "/context",
+      "example": "/context [all]",
       "aliases": []
     },
     {
@@ -373,6 +370,13 @@
       "aliases": []
     },
     {
+      "command": "/radio",
+      "description": "Open Claude FM lo-fi radio in your browser. Prints the stream URL when no browser is available. Not available on Bedrock, Vertex, or Foundry",
+      "type": "built-in",
+      "example": "/radio",
+      "aliases": []
+    },
+    {
       "command": "/recap",
       "description": "Generate a one-line summary of the current session on demand. See Session recap for the automatic recap that appears after you’ve been away",
       "type": "built-in",
@@ -448,7 +452,7 @@
     },
     {
       "command": "/schedule [description]",
-      "description": "Create, update, list, or run routines. Claude walks you through the setup conversationally. Alias: /routines",
+      "description": "Create, update, list, or run routines, which execute on Anthropic-managed cloud infrastructure. Claude walks you through the setup conversationally. Alias: /routines",
       "type": "built-in",
       "example": "/schedule [description]",
       "aliases": []
