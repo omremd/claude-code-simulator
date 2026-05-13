@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-12",
-  "currentVersion": "2.1.139",
+  "lastUpdated": "2026-05-13",
+  "currentVersion": "2.1.140",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -161,7 +161,7 @@
     },
     {
       "command": "/exit",
-      "description": "Exit the CLI. Alias: /quit",
+      "description": "Exit the CLI. In an attached background session, this detaches and the session keeps running. Alias: /quit",
       "type": "built-in",
       "example": "/exit",
       "aliases": [
@@ -790,7 +790,7 @@
     },
     {
       "command": "--exclude-dynamic-system-prompt-sections",
-      "description": "Move per-machine sections from the system prompt (working directory, environment info, memory paths, git status) into the first user message. Improves prompt-cache reuse across different users and machines running the same task. Only applies with the default system prompt; ignored when --system-prompt or --system-prompt-file is set. Use with -p for scripted, multi-user workloads",
+      "description": "Move per-machine sections from the system prompt (working directory, environment info, memory paths, git-repo flag) into the first user message. Improves prompt-cache reuse across different users and machines running the same task. Only applies with the default system prompt; ignored when --system-prompt or --system-prompt-file is set. Use with -p for scripted, multi-user workloads",
       "type": "cli",
       "example": "claude -p --exclude-dynamic-system-prompt-sections \"query\"",
       "aliases": []
