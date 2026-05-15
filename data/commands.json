@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-14",
-  "currentVersion": "2.1.141",
+  "lastUpdated": "2026-05-15",
+  "currentVersion": "2.1.142",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -1144,7 +1144,7 @@
     },
     {
       "command": "claude agents",
-      "description": "Open agent view to monitor and dispatch parallel background sessions. When output is piped, lists configured subagents instead",
+      "description": "Open agent view to monitor and dispatch parallel background sessions. Use --cwd <path> to show only sessions started under that directory",
       "type": "cli",
       "example": "claude agents",
       "aliases": []
