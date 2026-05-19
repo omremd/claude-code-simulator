@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-18",
-  "currentVersion": "2.1.143",
+  "lastUpdated": "2026-05-19",
+  "currentVersion": "2.1.144",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -173,13 +173,6 @@
       "description": "Export the current conversation as plain text. With a filename, writes directly to that file. Without, opens a dialog to copy to clipboard or save to a file",
       "type": "built-in",
       "example": "/export [filename]",
-      "aliases": []
-    },
-    {
-      "command": "/extra-usage",
-      "description": "Configure extra usage to keep working when rate limits are hit",
-      "type": "built-in",
-      "example": "/extra-usage",
       "aliases": []
     },
     {
@@ -601,7 +594,7 @@
     },
     {
       "command": "/ultrareview [PR]",
-      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max, then requires extra usage",
+      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max, then requires usage credits",
       "type": "built-in",
       "example": "/ultrareview [PR]",
       "aliases": []
@@ -618,6 +611,13 @@
       "description": "Show session cost, plan usage limits, and activity stats. See the cost tracking guide for subscription-specific details. /cost and /stats are aliases",
       "type": "built-in",
       "example": "/usage",
+      "aliases": []
+    },
+    {
+      "command": "/usage-credits",
+      "description": "Configure usage credits to keep working when you hit a limit. Previously /extra-usage",
+      "type": "built-in",
+      "example": "/usage-credits",
       "aliases": []
     },
     {
@@ -797,7 +797,7 @@
     },
     {
       "command": "--fallback-model",
-      "description": "Enable automatic fallback to specified model when default model is overloaded (print mode only)",
+      "description": "Enable automatic fallback to a specified model when the default model is overloaded. Takes effect in print mode (-p) and in background sessions, which run non-interactively; ignored in an interactive session",
       "type": "cli",
       "example": "claude -p --fallback-model sonnet \"query\"",
       "aliases": []
@@ -1144,9 +1144,9 @@
     },
     {
       "command": "claude agents",
-      "description": "Open agent view to monitor and dispatch parallel background sessions. Use --cwd <path> to show only sessions started under that directory",
+      "description": "Open agent view to monitor and dispatch parallel background sessions. Use --cwd <path> to show only sessions started under that directory. Pass --permission-mode, --model, or --effort to set defaults for dispatched sessions. Accepts --settings, --add-dir, --plugin-dir, and --mcp-config like the top-level claude command. Requires an interactive terminal",
       "type": "cli",
-      "example": "claude agents",
+      "example": "claude agents --cwd ~/projects/my-app",
       "aliases": []
     },
     {
@@ -1182,6 +1182,13 @@
       "description": "Print the built-in auto mode classifier rules as JSON. Use claude auto-mode config to see your effective config with settings applied",
       "type": "cli",
       "example": "claude auto-mode defaults > rules.json",
+      "aliases": []
+    },
+    {
+      "command": "claude daemon status",
+      "description": "Print the background-session supervisor’s state, version, socket directory, and worker count for diagnostics. Exits 1 if the supervisor isn’t running",
+      "type": "cli",
+      "example": "claude daemon status",
       "aliases": []
     },
     {
@@ -1230,7 +1237,7 @@
     },
     {
       "command": "claude respawn <id>",
-      "description": "Restart a stopped background session with its conversation intact. Use --all to restart every stopped session",
+      "description": "Restart a background session, running or stopped, with its conversation intact. Use --all to restart every running session, e.g. to pick up an updated Claude Code binary",
       "type": "cli",
       "example": "claude respawn 7c5dcf5d",
       "aliases": []
