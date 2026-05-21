@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-20",
-  "currentVersion": "2.1.145",
+  "lastUpdated": "2026-05-21",
+  "currentVersion": "2.1.146",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -131,7 +131,7 @@
     },
     {
       "command": "/desktop",
-      "description": "Continue the current session in the Claude Code Desktop app. macOS and Windows only. Alias: /app",
+      "description": "Continue the current session in the Claude Code Desktop app. Requires macOS or Windows and a Claude subscription. Alias: /app",
       "type": "built-in",
       "example": "/desktop",
       "aliases": [
@@ -289,7 +289,7 @@
     },
     {
       "command": "/loop [interval] [prompt]",
-      "description": "Skill. Run a prompt repeatedly while the session stays open. Omit the interval and Claude self-paces between iterations. Omit the prompt and Claude runs an autonomous maintenance check, or the prompt in .claude/loop.md if present. Example: /loop 5m check if the deploy finished. See Run prompts on a schedule. Alias: /proactive",
+      "description": "Skill. Run a prompt repeatedly while the session stays open. Omit the interval and Claude self-paces between iterations. Omit the prompt and, where available, Claude runs an autonomous maintenance check or the prompt in .claude/loop.md. Example: /loop 5m check if the deploy finished. See Run prompts on a schedule. Alias: /proactive",
       "type": "built-in",
       "example": "/loop [interval] [prompt]",
       "aliases": []
