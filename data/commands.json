@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-21",
-  "currentVersion": "2.1.146",
+  "lastUpdated": "2026-05-22",
+  "currentVersion": "2.1.148",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -76,6 +76,13 @@
       "description": "Start a new conversation with empty context. The previous conversation stays available in /resume. Pass a name to label the previous conversation in the /resume picker. To free up context while continuing the same conversation, use /compact instead. Aliases: /reset, /new",
       "type": "built-in",
       "example": "/clear [name]",
+      "aliases": []
+    },
+    {
+      "command": "/code-review [low|medium|high|xhigh|max] [--comment] [target]",
+      "description": "Skill. Review the current diff for correctness bugs and report findings without editing files. Lower effort levels return fewer, higher-confidence findings, while high through max give broader coverage and may include uncertain findings. Without an effort argument, the review uses the session’s current effort. Pass --comment to post findings as inline comments on the current GitHub PR. Pass a path or PR reference to review a specific target. Formerly /simplify, which still works as an alias",
+      "type": "built-in",
+      "example": "/code-review [low|medium|high|xhigh|max] [--comment] [target]",
       "aliases": []
     },
     {
@@ -504,13 +511,6 @@
       "description": "Configure Google Vertex AI authentication, project, region, and model pins through an interactive wizard. Only visible when CLAUDE_CODE_USE_VERTEX=1 is set. First-time Vertex AI users can also access this wizard from the login screen",
       "type": "built-in",
       "example": "/setup-vertex",
-      "aliases": []
-    },
-    {
-      "command": "/simplify [focus]",
-      "description": "Skill. Review your recently changed files for code reuse, quality, and efficiency issues, then fix them. Spawns three review agents in parallel, aggregates their findings, and applies fixes. Pass text to focus on specific concerns: /simplify focus on memory efficiency",
-      "type": "built-in",
-      "example": "/simplify [focus]",
       "aliases": []
     },
     {
