@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-25",
+  "lastUpdated": "2026-05-26",
   "currentVersion": "2.1.150",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
@@ -622,7 +622,7 @@
     },
     {
       "command": "/usage",
-      "description": "Show session cost, plan usage limits, and activity stats. See the cost tracking guide for subscription-specific details. /cost and /stats are aliases",
+      "description": "Show session cost, plan usage limits, and activity stats. On a Pro, Max, Team, or Enterprise plan, includes a breakdown of usage by skill, subagent, plugin, and MCP server. See the cost tracking guide for details. /cost and /stats are aliases",
       "type": "built-in",
       "example": "/usage",
       "aliases": []
