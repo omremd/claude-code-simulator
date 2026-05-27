@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-26",
-  "currentVersion": "2.1.150",
+  "lastUpdated": "2026-05-27",
+  "currentVersion": "2.1.152",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -848,14 +848,14 @@
       "command": "--include-hook-events",
       "description": "Include all hook lifecycle events in the output stream. Requires --output-format stream-json",
       "type": "cli",
-      "example": "claude -p --output-format stream-json --include-hook-events \"query\"",
+      "example": "claude -p --output-format stream-json --verbose --include-hook-events \"query\"",
       "aliases": []
     },
     {
       "command": "--include-partial-messages",
       "description": "Include partial streaming events in output. Requires --print and --output-format stream-json",
       "type": "cli",
-      "example": "claude -p --output-format stream-json --include-partial-messages \"query\"",
+      "example": "claude -p --output-format stream-json --verbose --include-partial-messages \"query\"",
       "aliases": []
     },
     {
@@ -1009,7 +1009,7 @@
       "command": "--replay-user-messages",
       "description": "Re-emit user messages from stdin back on stdout for acknowledgment. Requires --input-format stream-json and --output-format stream-json",
       "type": "cli",
-      "example": "claude -p --input-format stream-json --output-format stream-json --replay-user-messages",
+      "example": "claude -p --input-format stream-json --output-format stream-json --verbose --replay-user-messages",
       "aliases": []
     },
     {
