@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-05-27",
-  "currentVersion": "2.1.152",
+  "lastUpdated": "2026-05-28",
+  "currentVersion": "2.1.153",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -79,10 +79,10 @@
       "aliases": []
     },
     {
-      "command": "/code-review [low|medium|high|xhigh|max] [--comment] [target]",
-      "description": "Skill. Review the current diff for correctness bugs and report findings without editing files. Lower effort levels return fewer, higher-confidence findings, while high through max give broader coverage and may include uncertain findings. Without an effort argument, the review uses the session’s current effort. Pass --comment to post findings as inline comments on the current GitHub PR. Pass a path or PR reference to review a specific target. Formerly /simplify, which still works as an alias",
+      "command": "/code-review [low|medium|high|xhigh|max|ultra] [--fix] [--comment] [target]",
+      "description": "Skill. Review the current diff for correctness bugs and for reuse, simplification, and efficiency cleanups. Pass --fix to apply findings to your working tree, --comment to post them as inline GitHub PR comments, or ultra to run a deep cloud review. /simplify is equivalent to /code-review --fix. See Review a diff locally for effort levels and targeting",
       "type": "built-in",
-      "example": "/code-review [low|medium|high|xhigh|max] [--comment] [target]",
+      "example": "/code-review [low|medium|high|xhigh|max|ultra] [--fix] [--comment] [target]",
       "aliases": []
     },
     {
@@ -327,7 +327,7 @@
     },
     {
       "command": "/model [model]",
-      "description": "Set the AI model for the current session. For models that support it, use left/right arrows to adjust effort level. With no argument, opens a picker; press d on a row to also save that model as the default for new sessions. The picker asks for confirmation when the conversation has prior output, since the next response re-reads the full history without cached context. Once confirmed, the change applies without waiting for the current response to finish",
+      "description": "Switch the AI model and save it as your default for new sessions. For models that support it, use left/right arrows to adjust effort level. With no argument, opens a picker; press s on a row to switch for the current session only. The picker asks for confirmation when the conversation has prior output, since the next response re-reads the full history without cached context. Once confirmed, the change applies without waiting for the current response to finish",
       "type": "built-in",
       "example": "/model [model]",
       "aliases": []
@@ -412,6 +412,13 @@
       "aliases": []
     },
     {
+      "command": "/reload-skills",
+      "description": "Re-scan skill and command directories so skills added or changed on disk during the session become available without restarting. Reports how many skills are available and how many were added or removed",
+      "type": "built-in",
+      "example": "/reload-skills",
+      "aliases": []
+    },
+    {
       "command": "/remote-control",
       "description": "Make this session available for remote control from claude.ai. Alias: /rc",
       "type": "built-in",
@@ -443,7 +450,7 @@
     },
     {
       "command": "/review [PR]",
-      "description": "Review a pull request locally in your current session. For a deeper cloud-based review, see /ultrareview",
+      "description": "Review a pull request locally in your current session. For a deeper cloud-based review, see /code-review ultra",
       "type": "built-in",
       "example": "/review [PR]",
       "aliases": []
@@ -608,7 +615,7 @@
     },
     {
       "command": "/ultrareview [PR]",
-      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. Includes 3 free runs on Pro and Max, then requires usage credits",
+      "description": "Run a deep, multi-agent code review in a cloud sandbox with ultrareview. The preferred invocation is now /code-review ultra, and /ultrareview remains as an alias. Includes 3 free runs on Pro and Max, then requires usage credits",
       "type": "built-in",
       "example": "/ultrareview [PR]",
       "aliases": []
@@ -818,7 +825,7 @@
     },
     {
       "command": "--fallback-model",
-      "description": "Enable automatic fallback to a specified model when the default model is overloaded. Takes effect in print mode (-p) and in background sessions, which run non-interactively; ignored in an interactive session",
+      "description": "Enable automatic fallback to a specified model when the default model is overloaded or not available, for example a retired model. Takes effect in print mode (-p) and in background sessions, which run non-interactively; ignored in an interactive session",
       "type": "cli",
       "example": "claude -p --fallback-model sonnet \"query\"",
       "aliases": []
