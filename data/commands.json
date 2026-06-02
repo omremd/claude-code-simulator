@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-01",
-  "currentVersion": "2.1.159",
+  "lastUpdated": "2026-06-02",
+  "currentVersion": "2.1.160",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -1252,6 +1252,13 @@
       "description": "Print the background-session supervisor’s state, version, socket directory, and worker count for diagnostics. Exits 1 if the supervisor isn’t running",
       "type": "cli",
       "example": "claude daemon status",
+      "aliases": []
+    },
+    {
+      "command": "claude daemon stop --any",
+      "description": "Stop the background-session supervisor and the sessions it hosts. Pass --keep-workers to leave background sessions running so the next supervisor reconnects to them. --any confirms stopping an on-demand supervisor, which is the default. Use this to recover from an unresponsive supervisor",
+      "type": "cli",
+      "example": "claude daemon stop --any --keep-workers",
       "aliases": []
     },
     {
