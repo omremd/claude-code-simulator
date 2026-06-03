@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-06-02",
-  "currentVersion": "2.1.160",
+  "lastUpdated": "2026-06-03",
+  "currentVersion": "2.1.161",
   "sources": {
     "primary": "https://code.claude.com/docs/en/commands",
     "builtIn": "https://code.claude.com/docs/en/commands",
@@ -601,7 +601,7 @@
     },
     {
       "command": "/terminal-setup",
-      "description": "Configure terminal keybindings for Shift+Enter and other shortcuts. Only visible in terminals that need it, like VS Code, Cursor, Windsurf, Alacritty, or Zed",
+      "description": "Configure terminal keybindings for Shift+Enter and other shortcuts. Only visible in terminals that need it, like VS Code, Cursor, Devin Desktop, Alacritty, or Zed",
       "type": "built-in",
       "example": "/terminal-setup",
       "aliases": []
