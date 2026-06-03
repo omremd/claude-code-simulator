@@ -2,8 +2,8 @@ name: Sync Claude Code commands
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 5 * * *" # 8 AM Egypt time
+ # schedule:
+ #   - cron: "0 5 * * *" # 8 AM Egypt time
 
 concurrency:
   group: sync-claude-commands
